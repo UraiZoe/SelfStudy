@@ -13,28 +13,38 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+
+            // Alapadatok
+            $table->string('user_name',25);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            // Kiegészítő mezők
+            $table->string('real_name',100)->nullable();
+            $table->foreignId('levelId');//LevelId
+            $table->date('birth_date'); // születési dátum
+            $table->enum('role', ['admin','teacher','student'])->default('student'); // felhasználói szerepkör
+            $table->string('profil_picture');//Profilkép
+            $table->string('phone', 15)->nullable(); // telefonszám, max. 15 számjegy
+            $table->boolean('black_mode')->default(true);
+
             $table->rememberToken();
             $table->timestamps();
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
+        // Laravel-alapértelmezett néven: használhatod a password_resets-t is
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
-        });
+        // (Ha adatbázis-alapú session-t, cache-t, queue-t használsz, ne felejtsd el legenerálni és lefuttatni a megfelelő migrációkat:
+        // php artisan session:table
+        // php artisan cache:table
+        // php artisan queue:table
+        // php artisan migrate)
     }
 
     /**
@@ -42,8 +52,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('password_resets');
         Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
     }
 };
