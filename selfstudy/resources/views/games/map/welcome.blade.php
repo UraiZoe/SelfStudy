@@ -1,13 +1,13 @@
 @extends("layouts.layout")
 <!-- Fejléc kiszedés -->
  
-@section("title", "Welcome!")
+@section("title", "Driving game")
 <!-- Cím adás az oldalnak változó által -->
 
 @section("content")
-    <!-- Kontent kiszedés -->
+<!-- Kontent kiszedés -->
+ 
 <main>
-    <h1>Welcome to SelfStudy!</h1>
+  <h1>Driving game</h1>  
 </main>
 @endsection
-<!-- Lezárás -->
