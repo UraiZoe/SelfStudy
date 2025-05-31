@@ -7,7 +7,7 @@
 @section("content")
     <!-- Kontent kiszedés -->
     <main>
-        <h1>Köszöntelek!🐈‍⬛</h1><br>
+        <h1>Köszöntelek!</h1><br>
         <div class="d-flex justify-content-center gap-4 flex-wrap card text-center">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam possimus totam, explicabo nisi error fugit quas, nam repudiandae laudantium rem delectus! Nihil atque distinctio quidem commodi, vel similique quisquam consequatur.</p>
         </div><br>

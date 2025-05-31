@@ -7,7 +7,8 @@
 @section("content")
     <!-- Kontent kiszedés -->
 <main>
-    <h1>Welcome to SelfStudy!😎</h1>
+    <h1>Welcome to SelfStudy!</h1>
+
 </main>
 @endsection
 <!-- Lezárás -->
