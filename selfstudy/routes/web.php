@@ -1,18 +1,30 @@
 <?php
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AttemptController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\StudySetController;
 
+// Nyílt, nem admin: pl. front-end felhasználói műveletek (ha szükséges)
 Route::resource('users', UserController::class);
-Route::resource('account', AccountController::class);
 Route::resource('attempts', AttemptController::class);
-Route::resource('level', LevelController::class);
-Route::resource('studyset', StudySetController::class);
+Route::resource('levels', LevelController::class);
+Route::resource('study_sets', StudySetController::class);
+// …stb.
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Admin csoportra alkalmazott route-okon belül csak az 'admin' middleware működik
+Route::middleware(['auth', 'isAdmin'])
+     ->prefix('admin')
+     ->name('admin.')
+     ->group(function () {
+         // Admin-View: felhasználók kezelése
+         Route::resource('users', AccountController::class);
+         // Admin-View: attempt-ek kezelése
+         Route::resource('attempts', AttemptController::class);
+         // Admin-View: szintek kezelése
+         Route::resource('levels', LevelController::class);
+         // Admin-View: study_set-ek kezelése
+         Route::resource('study_sets', StudySetController::class);
+     });
