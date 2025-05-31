@@ -1,14 +1,19 @@
 @extends("layouts.layout")
 <!-- Fejléc kiszedés -->
- 
+
 @section("title", "Welcome!")
 <!-- Cím adás az oldalnak változó által -->
 
 @section("content")
     <!-- Kontent kiszedés -->
-<main>
-    <h1>Welcome to SelfStudy!</h1>
+    <br>
+    <main>
+        <div class="hover-text-container">
+            <h1 class="text-normal">Welcome to this page!</h1>
+            <h1 class="text-hover">Üdvözöllek ezzen az oldalon!</h1>
+        </div>
 
-</main>
+
+    </main>
 @endsection
 <!-- Lezárás -->

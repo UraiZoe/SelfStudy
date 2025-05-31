@@ -6,6 +6,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AttemptController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\StudySetController;
+use App\Http\Controllers\AuthController;
 
 // Nyílt, nem admin: pl. front-end felhasználói műveletek (ha szükséges)
 Route::resource('users', UserController::class);
@@ -35,6 +36,10 @@ Route::view('/games/cooking', 'games.cooking.welcome')->name('games.cooking');
 Route::view('/games/numberCalculation', 'games.numberCalculation.welcome')->name('games.numberCalculation');
 Route::view('/games/map', 'games.map.welcome')->name('games.map');
 Route::view('/auth', 'auth.admin')->name('auth.admin');
-Route::view('/login', 'auth.login')->name('auth.login');
 Route::view('/moderator', 'auth.moderator')->name('auth.moderator');
-Route::view('/register', 'auth.register')->name('auth.register');
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

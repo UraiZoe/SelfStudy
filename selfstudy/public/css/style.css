@@ -1,3 +1,50 @@
+/* public/css/style.css */
+
+/* --------------------------------------------------
+   Alap háttérszín
+   -------------------------------------------------- */
 body {
     background-color: rgba(154, 154, 239, 0.833);
+}
+
+.hover-text-container {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;    
+}
+
+
+.hover-text-container .text-normal,
+.hover-text-container .text-hover {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;               
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;  
+    white-space: nowrap;
+}
+.hover-text-container .text-normal {
+    opacity: 1;          
+    color: #2c3e50;    
+}
+
+.hover-text-container .text-hover {
+    opacity: 0;         
+    color: #3775d2ea;    
+}
+
+
+.hover-text-container:hover .text-normal {
+    opacity: 0;
+}
+
+.hover-text-container:hover .text-hover {
+    opacity: 1;
 }
