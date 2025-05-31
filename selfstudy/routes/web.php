@@ -28,3 +28,9 @@ Route::middleware(['auth', 'isAdmin'])
          // Admin-View: study_set-ek kezelése
          Route::resource('study_sets', StudySetController::class);
      });
+Route::view('/', 'welcome')->name('home');
+Route::view('/quiz', 'quiz.welcome')->name('quiz.home');
+Route::view('/games', 'games.welcome')->name('games.home');
+Route::view('/games/cooking', 'games.cooking.welcome')->name('games.cooking');
+Route::view('/games/numberCalculation', 'games.numberCalculation.welcome')->name('games.numberCalculation');
+Route::view('/games/map', 'games.map.welcome')->name('games.map');

@@ -1,4 +1,4 @@
-@extends("layouts.layout")
+@extends("gamingLayouts.layout")
 <!-- Fejléc kiszedés -->
  
 @section("title", "Driving game")

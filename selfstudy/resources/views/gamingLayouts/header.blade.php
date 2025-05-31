@@ -17,5 +17,5 @@
 
 <body>
     <header class="header">
-        <h1>Ez a fejléc</h1>
+        <h1>Ez a játékok fejléce</h1>
     </header>

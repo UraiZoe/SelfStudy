@@ -1,8 +1,8 @@
-@include("layouts.header")
+@include("gamingLayouts.header")
 <!-- Fejléc  -->
 
 @yield("content")
 <!-- content kiszedés -->
 
-@include("layouts.footer")
+@include("gamingLayouts.footer")
 <!-- Lábléc -->
